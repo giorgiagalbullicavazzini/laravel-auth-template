@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.auth')
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+@section('content')
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Welcome to the Laravel Boostrap Auth Template') }}</div>
 
-        {{-- Include Assets --}}
-        @vite('resources/js/app.js');
-    </head>
-
-    <body>
-        
-    </body>
-</html>
+                <div class="card-body">
+                    Click on login or register in the menu to get started :)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
