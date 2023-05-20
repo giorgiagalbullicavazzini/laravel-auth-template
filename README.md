@@ -1,6 +1,7 @@
-# Laravel 9 + Bootstrap Template
+# Laravel 9 + Bootstrap Template + Auth
 Questa repo template contiene una versione modificata del pacchetto `laravel/laravel`. Tale versione differisce nei seguenti punti:
 
+- È stato installato Laravel / Breeze e rivista la parte di gestione login / registrazione / recupero password in ottica bootstrap / sass.
 - `PostCSS` è stato rimosso
 - È stato installato `SASS`
 - È stato installato `Bootstrap`
@@ -12,7 +13,23 @@ Questa repo template contiene una versione modificata del pacchetto `laravel/lar
     - È stato rimosso lo stile preesistente
     - È stato modificato il contenuto
 
-## Passi da effettuare per RIPRODURRE questo template
+## Passi per cominciare
+1. Installare laravel - in questo template è installata la versione 9
+2. Scaricare laravel breeze - composer require laravel/breeze --dev
+3. Installare laravel breeze - php artisan breeze:install
+4. Rimuovere da resources/views tutte le cartelle e lasciare solo welcome.blade.php
+5. Copiare da questo template il contenuto di /resources/view
+6. Impostare su routes/web.php la rotta per la dashboard
+
+```
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+```
+
+
+
+## Passi per RIPRODURRE questo template
 1. Eseguire il comando `npm remove postcss` per rimuovere PostCSS
 3. Eseguire il comando `npm i` per installare tutti i pacchetti di NPM (comprese le versioni aggiornate di `vite` e `laravel-vite-plugin`)
 4. Eseguire il comando `npm i --save-dev sass` per installare SASS
@@ -61,11 +78,13 @@ Questa repo template contiene una versione modificata del pacchetto `laravel/lar
 2. Clonare la repository appena creata su `VS Code`
 3. Aprire il `terminale`
 4. Copiare il file `.env.example` e rinominarlo in `.env`
+4. Configurare le impostazioni del DB
 5. Eseguire il comando `composer install`
 6. Eseguire il comando `php artisan key:generate`
 7. Eseguire il comando `npm i` o `npm install`
-8. Aprire un secondo `terminale`
-9. In uno dei due terminali, eseguire il comando `php artisan serve`. Nell'altro, `npm run dev`
+8. Eseguire il comando `php artisan migrate`
+9. Aprire un secondo `terminale`
+10. In uno dei due terminali, eseguire il comando `php artisan serve`. Nell'altro, `npm run dev`
 
 ## Creare una template repository
 1. Aprire la repo su github
